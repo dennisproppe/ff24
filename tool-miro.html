@@ -3,10 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miro - Future Founder Build Weekend '24</title>
+    <title>Miro - Future Founder Build Weekend</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="auth.js"></script>
     <script src="js/components.js"></script>
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 0.5rem;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <div id="header-container"></div>
@@ -50,15 +90,37 @@
                             <h3 class="text-xl font-semibold text-gray-800 mb-4">Resources</h3>
                             <ul class="space-y-3">
                                 <li class="bg-gray-50 p-3 rounded">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
-                                        <span class="font-medium">Miro Template Library</span>
-                                        <p class="text-sm text-gray-600 mt-1">Coming soon - Specially curated templates for startup founders</p>
+                                    <a href="#" onclick="openBestPracticesModal()" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Best Practices Guide</span>
+                                        <p class="text-sm text-gray-600 mt-1">Learn how to effectively use Miro for your project planning</p>
                                     </a>
                                 </li>
                                 <li class="bg-gray-50 p-3 rounded">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
-                                        <span class="font-medium">Best Practices Guide</span>
-                                        <p class="text-sm text-gray-600 mt-1">Coming soon - Tips and tricks for effective brainstorming</p>
+                                    <a href="https://miro.com/miroverse/startups/" target="_blank" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Miro Template Library</span>
+                                        <p class="text-sm text-gray-600 mt-1">Browse through Miro's collection of startup-focused templates</p>
+                                        <ul class="mt-2 space-y-2 ml-4">
+                                            <li>
+                                                <a href="https://miro.com/miroverse/idea-dashboard/" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">• Idea Dashboard Template</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://miro.com/miroverse/the-perfect-saas-homepage-template/" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">• Perfect SaaS Homepage Template</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://miro.com/miroverse/how-to-build-great-things-template/" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">• How to Build Great Things Template</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://miro.com/miroverse/manifesto/" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">• Manifesto Template</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </a>
                                 </li>
                                 <li class="bg-gray-50 p-3 rounded">
@@ -76,5 +138,51 @@
     </main>
 
     <div id="footer-container"></div>
+
+    <!-- Best Practices Modal -->
+    <div id="bestPracticesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBestPracticesModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Miro Best Practices Guide</h2>
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex items-start">
+                        <span class="text-indigo-600 mr-2">•</span>
+                        <p>Start simple - Just create some sticky notes that verbally describe your idea</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-600 mr-2">•</span>
+                        <p>Then try to verbalize the idea into one coherent prompt that could be used in an AI solution</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-600 mr-2">•</span>
+                        <p>When the program starts to unfold, draw boxes with functions connected by arrows (with events or actions on them) to visualize the user's flow through the app</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-600 mr-2">•</span>
+                        <p>Have a meta section where you note down the prompts you used, what worked and what didn't, and also your general progress</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openBestPracticesModal() {
+            document.getElementById('bestPracticesModal').style.display = 'block';
+        }
+
+        function closeBestPracticesModal() {
+            document.getElementById('bestPracticesModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            let modal = document.getElementById('bestPracticesModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
