@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor - Future Founder Build Weekend '24</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="auth.js"></script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-indigo-600 text-white shadow-lg">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold hover:text-indigo-200">Future Founder '24</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html#overview" class="hover:text-indigo-200 transition-colors">Overview</a></li>
+                    <li><a href="friday.html" class="hover:text-indigo-200 transition-colors">Friday</a></li>
+                    <li><a href="saturday.html" class="hover:text-indigo-200 transition-colors">Saturday</a></li>
+                    <li><a href="tools.html" class="hover:text-indigo-200 transition-colors border-b-2 border-white">Tools</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl font-bold mb-4">Cursor</h1>
+                <p class="text-xl mb-8">AI-first code editor</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold text-indigo-600 mb-6">About Cursor</h2>
+                        <p class="text-gray-600 mb-6">Cursor is an innovative code editor that puts AI at the forefront of the development experience. It helps developers write, understand, and transform code more efficiently.</p>
+                        
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Features</h3>
+                        <ul class="list-disc pl-6 mb-6 text-gray-600 space-y-2">
+                            <li>AI-powered code completion</li>
+                            <li>Natural language code generation</li>
+                            <li>Code explanation and documentation</li>
+                            <li>Smart code refactoring</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">How to Use</h3>
+                        <ol class="list-decimal pl-6 mb-6 text-gray-600 space-y-2">
+                            <li>Download Cursor from <a href="https://cursor.sh" target="_blank" class="text-indigo-600 hover:text-indigo-800">cursor.sh</a></li>
+                            <li>Install and set up your development environment</li>
+                            <li>Open your project in Cursor</li>
+                            <li>Start coding with AI assistance</li>
+                        </ol>
+
+                        <div class="mt-8">
+                            <a href="https://cursor.sh" target="_blank" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">Get Started with Cursor</a>
+                        </div>
+
+                        <div class="mt-12">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Resources</h3>
+                            <ul class="space-y-3">
+                                <li class="bg-gray-50 p-3 rounded">
+                                    <a href="#" onclick="openModal()" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Example Prompt: Building a Plane Tracker</span>
+                                        <p class="text-sm text-gray-600 mt-1">See how to build a complete web application using Cursor</p>
+                                    </a>
+                                </li>
+                                <li class="bg-gray-50 p-3 rounded">
+                                    <a href="#" onclick="openTypingModal()" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Example Prompt: Building a Typing Speed App</span>
+                                        <p class="text-sm text-gray-600 mt-1">Learn how to create a typing speed test application step by step</p>
+                                    </a>
+                                </li>
+                                <li class="bg-gray-50 p-3 rounded">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Quick Start Guides</span>
+                                        <p class="text-sm text-gray-600 mt-1">Learn how to use Cursor effectively with these video guides:</p>
+                                        <ul class="mt-2 space-y-2 ml-4">
+                                            <li>
+                                                <a href="https://www.youtube.com/watch?v=pjMooEnzEQs" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">▶️ Getting Started with Cursor (6 minutes)</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/watch?v=2WnxKCFAXAM" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                                                    <span class="text-sm">▶️ Tutorial for a complete website with deployment (30 minutes)</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </li>
+                                <li class="bg-gray-50 p-3 rounded">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">AI Commands Reference</span>
+                                        <p class="text-sm text-gray-600 mt-1">Essential AI commands to boost your productivity:</p>
+                                        <ul class="mt-2 space-y-2 ml-4">
+                                            <li class="text-sm">
+                                                <span class="font-mono bg-gray-100 px-2 py-1 rounded">⌘ + K</span>
+                                                <span class="ml-2">Open AI Command Palette</span>
+                                            </li>
+                                            <li class="text-sm">
+                                                <span class="font-mono bg-gray-100 px-2 py-1 rounded">⌘ + L</span>
+                                                <span class="ml-2">Chat with AI about selected code</span>
+                                            </li>
+                                            <li class="text-sm">
+                                                <span class="font-mono bg-gray-100 px-2 py-1 rounded">⌘ + ;</span>
+                                                <span class="ml-2">Generate code inline</span>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </li>
+                                <li class="bg-gray-50 p-3 rounded">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
+                                        <span class="font-medium">Code Examples</span>
+                                        <p class="text-sm text-gray-600 mt-1">Common tasks you can accomplish with Cursor:</p>
+                                        <ul class="mt-2 space-y-2 ml-4">
+                                            <li class="text-sm">
+                                                <span class="font-medium">🔄 Code Refactoring</span>
+                                                <p class="text-gray-600 mt-1">Select code and ask: "Refactor this to be more efficient"</p>
+                                            </li>
+                                            <li class="text-sm">
+                                                <span class="font-medium">🐛 Bug Fixing</span>
+                                                <p class="text-gray-600 mt-1">Copy error message and ask: "How do I fix this error?"</p>
+                                            </li>
+                                            <li class="text-sm">
+                                                <span class="font-medium">📝 Documentation</span>
+                                                <p class="text-gray-600 mt-1">Select function and ask: "Add JSDoc comments"</p>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="exampleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Building a Plane Tracker Application</h2>
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <p class="text-gray-700 mb-4">Here's an example conversation showing how to build a plane tracking application with Cursor:</p>
+                <ol class="list-decimal pl-6 space-y-4 text-gray-600">
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Hi, I'd like to start a new go project. Can you intialize it in this folder?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, cool, that worked. I'd now like to set up a small web application that allows you to Enter a plane type and then displays the airplanes that are in the air at that moment on a google map. For that we can use a very simple GET call to the API of @https://api.airplanes.live/v2/type/A388, where A388 is one possible type of airplane.</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, great, the problem is, I dont have a Google Maps API key. I created a solution lately, where I did not have to supply one, is this also possible?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Wow, awesome. I'd like to add a table under the map, where the retrieved JSON data from the API is listed with the elements that are in the Aircraft struct.</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, now for the last step I'd really like to apply a nicer design to the website. Can you style it with Bootstrap?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Thanks, that is cool. Can you adjust the color scheme and the spacing etc. from this page to this page? @https://future-founder.com/</p>
+                    </li>
+                </ol>
+                <p class="mt-6 text-gray-600 text-sm">This example demonstrates how Cursor can help you build a complete web application, from project initialization to styling, with natural language prompts.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Speed App Modal -->
+    <div id="typingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTypingModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Building a Typing Speed Test Application</h2>
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <p class="text-gray-700 mb-4">Follow this conversation to build a typing speed test application with Cursor:</p>
+                <div class="mb-4 text-gray-600">
+                    <p class="font-medium mb-2">Prerequisites:</p>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Open Cursor with a new folder in the appropriate place</li>
+                        <li>Create a file: hello.go in this folder</li>
+                    </ul>
+                </div>
+                <ol class="list-decimal pl-6 space-y-4 text-gray-600">
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Can you build me a little console hello world example, but have it say "Hello, word!"?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Can you change this go app to show hello, word in a web app instead of a console app?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Hi, can you change to app so that it uses a standard bootstrap css design?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, that was great - Can we restructure the project a bit, so that the HTML part of the code resides in a separate file that is then referenced by the hello.go?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, now I'd like to add a little funtionality to the app. I'd like to have a menu bar on the left side, with two entries: home and typing speed, can you do that?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, now I would like to generate an actual typing speed test page. The page should have a text box in that I can type a text that has been displayed above the box. When I type in that box, the speed and accuracy of the typing should be measured and displayed after typing is finished.</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Ok, this works fine. It just has a small problem: Whenever i have a typo in the text, it never finishes, so I always have an accuracy of 100%. Can you change the logic so that it stops also when the test text length is reached?</p>
+                    </li>
+                    <li>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Almost done. Can you add some more text examples to type?</p>
+                    </li>
+                </ol>
+                <p class="mt-6 text-gray-600 text-sm">This example shows how to incrementally build a web application with Go, starting from a simple console app and gradually adding features and improvements.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('exampleModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('exampleModal').style.display = 'none';
+        }
+
+        function openTypingModal() {
+            document.getElementById('typingModal').style.display = 'block';
+        }
+
+        function closeTypingModal() {
+            document.getElementById('typingModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById('exampleModal');
+            var typingModal = document.getElementById('typingModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+            if (event.target == typingModal) {
+                typingModal.style.display = 'none';
+            }
+        }
+    </script>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Future Founder Build Weekend. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
