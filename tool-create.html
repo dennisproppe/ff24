@@ -6,6 +6,7 @@
     <title>Create.xyz - Future Founder Build Weekend</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="auth.js"></script>
+    <script src="js/components.js"></script>
     <style>
         .modal {
             display: none;
@@ -45,8 +46,14 @@
 <body class="bg-gray-50">
     <header class="bg-indigo-600 text-white shadow-lg">
         <nav class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-bold">Future Founder Build Weekend</a>
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold hover:text-indigo-200">Future Founder '24</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html#overview" class="hover:text-indigo-200 transition-colors">Overview</a></li>
+                    <li><a href="friday.html" class="hover:text-indigo-200 transition-colors">Friday</a></li>
+                    <li><a href="saturday.html" class="hover:text-indigo-200 transition-colors">Saturday</a></li>
+                    <li><a href="tools.html" class="hover:text-indigo-200 transition-colors">Tools</a></li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -64,32 +71,7 @@
                             
                             <p class="mt-4 text-lg text-gray-600">Create.xyz is a powerful no-code platform that enables you to build web applications without writing code. Perfect for rapid prototyping and MVP development.</p>
 
-                            <div class="mt-8">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Features</h3>
-                                <ul class="space-y-4">
-                                    <li class="flex items-start">
-                                        <span class="text-indigo-600 mr-2">✦</span>
-                                        <div>
-                                            <h4 class="font-medium">Visual Builder</h4>
-                                            <p class="text-gray-600">Drag-and-drop interface for building responsive web applications</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-indigo-600 mr-2">✦</span>
-                                        <div>
-                                            <h4 class="font-medium">Database Integration</h4>
-                                            <p class="text-gray-600">Built-in database with visual data modeling</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-indigo-600 mr-2">✦</span>
-                                        <div>
-                                            <h4 class="font-medium">API Generation</h4>
-                                            <p class="text-gray-600">Automatic REST API endpoints for your data</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            
 
                             <div class="mt-8 mb-8">
                                 <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
@@ -112,12 +94,7 @@
                             <div class="mt-12">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Resources</h3>
                                 <ul class="space-y-3">
-                                    <li class="bg-gray-50 p-3 rounded">
-                                        <a href="#" onclick="openMVPModal()" class="text-indigo-600 hover:text-indigo-800 block">
-                                            <span class="font-medium">Example Project: Building an MVP</span>
-                                            <p class="text-sm text-gray-600 mt-1">Learn how to build a complete MVP in under an hour</p>
-                                        </a>
-                                    </li>
+                                    
                                     <li class="bg-gray-50 p-3 rounded">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
                                             <span class="font-medium">Quick Start Guides</span>
@@ -136,24 +113,11 @@
                                             </ul>
                                         </a>
                                     </li>
+                                    
                                     <li class="bg-gray-50 p-3 rounded">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-800 block">
-                                            <span class="font-medium">Component Library</span>
-                                            <p class="text-sm text-gray-600 mt-1">Pre-built components for common features:</p>
-                                            <ul class="mt-2 space-y-2 ml-4">
-                                                <li class="text-sm">
-                                                    <span class="font-medium">🔐 Authentication</span>
-                                                    <p class="text-gray-600 mt-1">User signup, login, and password reset flows</p>
-                                                </li>
-                                                <li class="text-sm">
-                                                    <span class="font-medium">💳 Payments</span>
-                                                    <p class="text-gray-600 mt-1">Stripe integration and subscription management</p>
-                                                </li>
-                                                <li class="text-sm">
-                                                    <span class="font-medium">📊 Analytics</span>
-                                                    <p class="text-gray-600 mt-1">User tracking and behavior analysis</p>
-                                                </li>
-                                            </ul>
+                                        <a href="#" onclick="openExampleModal()" class="text-indigo-600 hover:text-indigo-800 block">
+                                            <span class="font-medium">Example Prompt: Building an AI Fitness Coach</span>
+                                            <p class="text-sm text-gray-600 mt-1">See how to build a muscle build-up AI coach using Create.xyz</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -165,49 +129,37 @@
         </section>
     </main>
 
-    <!-- MVP Example Modal -->
-    <div id="mvpModal" class="modal">
+    <div id="footer-container"></div>
+
+            
+    <!-- Example Modal -->
+    <div id="exampleModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeMVPModal()">&times;</span>
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Building an MVP with Create.xyz</h2>
+            <span class="close" onclick="closeExampleModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Building an AI Fitness Coach</h2>
             <div class="bg-gray-50 p-6 rounded-lg">
-                <p class="text-gray-700 mb-4">Follow this guide to build a complete MVP using Create.xyz:</p>
+                <p class="text-gray-700 mb-4">Here's an example conversation showing how to build a muscle build-up AI coach with Create.xyz:</p>
                 <ol class="list-decimal pl-6 space-y-4 text-gray-600">
                     <li>
-                        <p class="font-medium">Step 1: Project Setup</p>
-                        <p class="ml-4">Create a new project and choose a template that matches your needs</p>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Hi, I'd like to build a muscle build-up AI coach. Basically I would like to connect to a LLM, modify the system prompt so that it is very much focused on creating answers for questions regarding muscle build up for middle aged men.</p>
                     </li>
                     <li>
-                        <p class="font-medium">Step 2: Data Model</p>
-                        <p class="ml-4">Design your database schema using the visual data modeler</p>
+                        <p class="font-medium">Assistant:</p>
+                        <p class="ml-4">You should add ChatGPT as an integration from the / Menu.</p>
                     </li>
                     <li>
-                        <p class="font-medium">Step 3: User Interface</p>
-                        <p class="ml-4">Build your pages using the drag-and-drop interface and pre-built components</p>
+                        <p class="font-medium">Assistant:</p>
+                        <p class="ml-4">The next Step (Step 2 out of 2) is to add the Markdown Renderer from the / Menu, so that the answers are rendered as Markdown.</p>
                     </li>
                     <li>
-                        <p class="font-medium">Step 4: Business Logic</p>
-                        <p class="ml-4">Add workflows and automations using the visual logic builder</p>
-                    </li>
-                    <li>
-                        <p class="font-medium">Step 5: Testing</p>
-                        <p class="ml-4">Preview your app and test all features in the development environment</p>
-                    </li>
-                    <li>
-                        <p class="font-medium">Step 6: Deployment</p>
-                        <p class="ml-4">Deploy your MVP with a single click and share with users</p>
+                        <p class="font-medium">User:</p>
+                        <p class="ml-4">Can you use this to render the AI answers as markdown?</p>
                     </li>
                 </ol>
-                <p class="mt-6 text-gray-600 text-sm">This example demonstrates how quickly you can go from idea to working application using Create.xyz's no-code platform.</p>
             </div>
         </div>
     </div>
-
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Future Founder Build Weekend. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
         function openMVPModal() {
@@ -218,11 +170,23 @@
             document.getElementById('mvpModal').style.display = 'none';
         }
 
+        function openExampleModal() {
+            document.getElementById('exampleModal').style.display = 'block';
+        }
+
+        function closeExampleModal() {
+            document.getElementById('exampleModal').style.display = 'none';
+        }
+
         // Close modal when clicking outside of it
         window.onclick = function(event) {
-            var modal = document.getElementById('mvpModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
+            let exampleModal = document.getElementById('exampleModal');
+            let mvpModal = document.getElementById('mvpModal');
+            if (event.target == exampleModal) {
+                exampleModal.style.display = "none";
+            }
+            if (event.target == mvpModal) {
+                mvpModal.style.display = "none";
             }
         }
     </script>

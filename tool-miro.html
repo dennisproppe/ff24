@@ -6,21 +6,10 @@
     <title>Miro - Future Founder Build Weekend '24</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="auth.js"></script>
+    <script src="js/components.js"></script>
 </head>
 <body class="bg-gray-50">
-    <header class="bg-indigo-600 text-white shadow-lg">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-bold hover:text-indigo-200">Future Founder '24</a>
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="index.html#overview" class="hover:text-indigo-200 transition-colors">Overview</a></li>
-                    <li><a href="friday.html" class="hover:text-indigo-200 transition-colors">Friday</a></li>
-                    <li><a href="saturday.html" class="hover:text-indigo-200 transition-colors">Saturday</a></li>
-                    <li><a href="tools.html" class="hover:text-indigo-200 transition-colors border-b-2 border-white">Tools</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div id="header-container"></div>
 
     <main>
         <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
@@ -86,10 +75,6 @@
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Future Founder Build Weekend. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer-container"></div>
 </body>
 </html>
